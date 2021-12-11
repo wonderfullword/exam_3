@@ -11,3 +11,14 @@ def pin():
     print("*"*s+str(a[-4:]))
 
 pin()
+
+def palindrom():
+    ab = input()
+    ba = ab[::-1]
+    if ab == ba:
+        print("True")
+    else:
+        print("False")
+
+
+palindrom()
