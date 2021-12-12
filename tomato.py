@@ -61,14 +61,6 @@ class TomatoBush:
     def give_away_all(self):
         if self.all_are_ripe():
             self.states=[]
-pomidor=Tomato(9)
-pomidor.grow()
-pomidor.is_ripe()
-pomidor.grow()
-vetka=TomatoBush(6)
-vetka.grow_all()
-vetka.all_are_ripe()
-vetka.give_away_all()
 
 
 #
@@ -81,8 +73,46 @@ vetka.give_away_all()
 #     Если нет - метод печатает предупреждение.
 # 5. Создайте статический метод knowledge_base(), который выведет в консоль справку по садоводству.
 
-#
-# class Gardener:
-#     def __init__(self,name):
-#         self.name=name
-#         self._plant=plant
+
+class Gardener:
+    def __init__(self,name,plant):
+        self.name=name
+        self._plant=plant
+
+    def work(self):
+        self._plant.grow_all()
+
+    def harvest(self):
+        if self._plant.all_are_ripe():
+            self._plant.give_away_all()
+        else:
+            print("Помидоры еще не дозрели")
+
+    @staticmethod
+
+
+    def knowledge_base():
+        print("Садоводство-трасль растениеводства, "
+              "занимающаяся возделыванием многолетних "
+              "плодовых или ягодных культур для получения фруктов, ягод.")
+
+
+# Тесты:
+# 1. Вызовите справку по садоводству
+# 2. Создайте объекты классов TomatoBush и Gardener
+# 3. Используя объект класса Gardener, поухаживайте за кустом с помидорами
+# 4. Попробуйте собрать урожай
+# 5. Если томаты еще не дозрели, продолжайте ухаживать за ними
+# 6. Соберите урожай
+
+
+Gardener.knowledge_base()
+vetka=TomatoBush(6)
+gardener=Gardener("Mark","vetka_tomato")
+gardener.work()
+gardener.harvest()
+gardener.work()
+gardener.harvest()
+vetka.grow_all()
+vetka.all_are_ripe()
+vetka.give_away_all()
