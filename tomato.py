@@ -6,32 +6,33 @@
 # protected свойства: 1) _index - передается параметром и 2) _state - принимает первое
 # значение из словаря states
 # 4. Создайте метод grow(), который будет переводить томат на следующую стадию
-# созревания
+# созревания!!!!!!
 # 5. Создайте метод is_ripe(), который будет проверять, что томат созрел (достиг
 # последней стадии созревания
 
 class Tomato:
-    states={1:"not_ripe",2:"ripe",3:"overripe"}
+    states={0:"flower",1:"not_ripe",2:"ripe"}
 
     def __init__(self,index):
         self._index=index
-        self._state=1
+        self._state=0
 
     def grow(self):
-        self._state+=1
+        if self._state<2:
+            self._state+=1
 
     def is_ripe(self):
-        if self._state==3:
-            return True
+        if self._state==2:
+            print("Ваш томат созрел")
         else:
-            return False
+            print("Ваш томат не созрел")
 
 
 # Класс TomatoBush
 # 1. Создайте класс TomatoBush
 # 2. Определите метод __init__(), который будет принимать в качестве параметра
 # количество томатов и на его основе будет создавать список объектов класса
-# Tomato. Данный список будет храниться внутри динамического свойства tomatoes.
+# Tomato. Данный список будет храниться внутри динамического свойства tomatoes.!!!!!!!!!!!!!!!!!!!
 # 3. Создайте метод grow_all(), который будет переводить все объекты из списка
 # томатов на следующий этап созревания
 # 4. Создайте метод all_are_ripe(), который будет возвращать True, если все томаты из
@@ -42,5 +43,10 @@ class Tomato:
 
 class TomatoBush:
     def __init__(self,number):
-        self.number=number
+        self.tomatoes=[Tomato(i) for i in range(0,number)]
 
+    def grow_all(self):
+        for tomato in self.tomatoes:
+            tomato.grow()
+
+    def all_are_ripe(self):
