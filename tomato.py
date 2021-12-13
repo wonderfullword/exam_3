@@ -35,7 +35,7 @@ class Tomato:
 # количество томатов и на его основе будет создавать список объектов класса
 # Tomato. Данный список будет храниться внутри динамического свойства tomatoes.!!!!!!!!!!!!!!!!!!!
 # 3. Создайте метод grow_all(), который будет переводить все объекты из списка
-# томатов на следующий этап созревания
+# томатов на следующий этап созревания!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # 4. Создайте метод all_are_ripe(), который будет возвращать True, если все томаты из
 # списка стали спелыми
 # 5. Создайте метод give_away_all(), который будет чистить список томатов после
@@ -43,22 +43,23 @@ class Tomato:
 
 
 class TomatoBush:
-    def __init__(self,num):
-        self.tomatoes = [Tomato(index) for index in range(0, num)]
-# к объекту класса томатов
+    # Создаем список из объектов класса Tomato
+    def __init__(self, num):
+        self.tomatoes = [Tomato(index) for index in range(0, num - 1)]
+
+    # Переводим все томаты из списка на следующий этап созревания
     def grow_all(self):
-        for pomidor in self.tomatoes:
-            pomidor.grow()
-        print("Ваш помидор зреет")
+        for tomato in self.tomatoes:
+            tomato.grow()
 
-
-
+    # Проверяем, все ли помидоры созрели
     def all_are_ripe(self):
-        for pomidor in self.tomatoes:
-            pomidor.is_ripe()
+        return all([tomato.is_ripe() for tomato in self.tomatoes])
 
+    # Собираем урожай
     def give_away_all(self):
-        self.states=[]
+        self.tomatoes = []
+
 
 
 #
