@@ -26,9 +26,8 @@ class Tomato:
 
     def is_ripe(self):
         if self._state==2:
-            print("Ваш томат созрел")
-        else:
-            print("Ваш томат не созрел")
+            return True
+        return False
 
 # Класс TomatoBush
 # 1. Создайте класс TomatoBush
@@ -59,8 +58,7 @@ class TomatoBush:
             pomidor.is_ripe()
 
     def give_away_all(self):
-        if self.all_are_ripe():
-            self.states=[]
+        self.states=[]
 
 
 #
@@ -92,7 +90,7 @@ class Gardener:
 
 
     def knowledge_base():
-        print("Садоводство-трасль растениеводства, "
+        print("Садоводство-отрасль растениеводства, "
               "занимающаяся возделыванием многолетних "
               "плодовых или ягодных культур для получения фруктов, ягод.")
 
@@ -108,7 +106,7 @@ class Gardener:
 
 Gardener.knowledge_base()
 vetka=TomatoBush(6)
-gardener=Gardener("Mark","vetka_tomato")
+gardener=Gardener("Mark",vetka)
 gardener.work()
 gardener.harvest()
 gardener.work()
