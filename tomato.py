@@ -105,12 +105,12 @@ class Gardener:
 # 5. Если томаты еще не дозрели, продолжайте ухаживать за ними
 # 6. Соберите урожай
 
-
-Gardener.knowledge_base()
-vetka=TomatoBush(6)
-gardener=Gardener("Mark",vetka)
-gardener.work()
-gardener.harvest()
-gardener.work()
-gardener.harvest()
-
+if __name__ == '__main__':
+    Gardener.knowledge_base()
+    vetka = TomatoBush(1)
+    gardener = Gardener("Mark", vetka)
+    gardener.work()
+    gardener.work()
+    gardener.harvest()
+    gardener.work()
+    gardener.harvest()
