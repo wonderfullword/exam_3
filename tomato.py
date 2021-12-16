@@ -17,10 +17,11 @@ class Tomato:
         self._index=index
         self._state=0
 
+
     def grow(self):
         if self._state<2:
             self._state+=1
-            print("Помидор еще дозревает,вы находитесь на стадии", self.states[self._state])
+            print("Вы находитесь на стадии", Tomato.states[self._state])
         else:
             print("Помидор дозрел")
 
@@ -33,9 +34,9 @@ class Tomato:
 # 1. Создайте класс TomatoBush
 # 2. Определите метод __init__(), который будет принимать в качестве параметра
 # количество томатов и на его основе будет создавать список объектов класса
-# Tomato. Данный список будет храниться внутри динамического свойства tomatoes.!!!!!!!!!!!!!!!!!!!
+# Tomato. Данный список будет храниться внутри динамического свойства tomatoes.
 # 3. Создайте метод grow_all(), который будет переводить все объекты из списка
-# томатов на следующий этап созревания!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# томатов на следующий этап созревания
 # 4. Создайте метод all_are_ripe(), который будет возвращать True, если все томаты из
 # списка стали спелыми
 # 5. Создайте метод give_away_all(), который будет чистить список томатов после
@@ -45,18 +46,18 @@ class Tomato:
 class TomatoBush:
     # Создаем список из объектов класса Tomato
     def __init__(self, num):
-        self.tomatoes = [Tomato(index) for index in range(0, num - 1)]
+        self.tomatoes = [Tomato(index) for index in range(0, num )]
 
-    # Переводим все томаты из списка на следующий этап созревания
+
     def grow_all(self):
         for tomato in self.tomatoes:
             tomato.grow()
 
-    # Проверяем, все ли помидоры созрели
+
     def all_are_ripe(self):
         return all([tomato.is_ripe() for tomato in self.tomatoes])
 
-    # Собираем урожай
+
     def give_away_all(self):
         self.tomatoes = []
 
@@ -112,6 +113,4 @@ gardener.work()
 gardener.harvest()
 gardener.work()
 gardener.harvest()
-vetka.grow_all()
-vetka.all_are_ripe()
-vetka.give_away_all()
+
