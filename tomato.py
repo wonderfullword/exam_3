@@ -107,7 +107,7 @@ class Gardener:
 
 if __name__ == '__main__':
     Gardener.knowledge_base()
-    vetka = TomatoBush(1)
+    vetka = TomatoBush(5)
     gardener = Gardener("Mark", vetka)
     gardener.work()
     gardener.work()
